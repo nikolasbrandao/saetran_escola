@@ -16,7 +16,7 @@ class CreateImovel extends Migration
       Schema::create('imovel', function(Blueprint $table){
 
         $table->integer('codigo')->nullable($value = true);
-        $table->integer('codigo_imovel')->nullable($value = true);
+        $table->integer('codigo_mae')->nullable($value = true);
         $table->string('regional', 255)->nullable($value = true);
         $table->string('cidade', 255)->nullable($value = true);
         $table->integer('inep')->nullable($value = true);
