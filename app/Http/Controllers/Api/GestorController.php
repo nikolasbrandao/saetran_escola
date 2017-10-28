@@ -21,7 +21,21 @@ class GestorController extends Controller
         $order[0] = $order[0] ?? 'codigo_imovel';
         $order[1] = $order[1] ?? 'nome';
 
+        $where = $request->all()['where'] ?? [];
+
+        $like = $request->all()['like'] ?? null;
+
+        if($like){
+          $like = explode(',', $like);
+          $like[1] = '%' . $like[1] . '%';
+        }
+
         $result = \App\Gestor::orderBy($order[0],$order[1])
+          ->where(function($query) use ($like){
+            if($like){ return $query->where($like[0], 'like', $like[1]); }
+            return $query;
+          })
+          ->where($where)
           ->paginate($limit);
 
 
