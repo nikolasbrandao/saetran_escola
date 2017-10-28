@@ -21,7 +21,10 @@ class TerceirizadoController extends Controller
       $order[0] = $order[0] ?? 'codigo_imovel';
       $order[1] = $order[1] ?? 'valor_unitario';
 
+      $where = $request->all()['where'] ?? [];
+
       $result = \App\Terceirizado::orderBy($order[0],$order[1])
+        ->where($where)
         ->paginate($limit);
       return response()->json($result);
     }

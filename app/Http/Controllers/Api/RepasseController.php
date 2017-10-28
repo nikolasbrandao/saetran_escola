@@ -20,7 +20,10 @@ class RepasseController extends Controller
       $order[0] = $order[0] ?? 'codigo_imovel';
       $order[1] = $order[1] ?? 'ano_parcela';
 
+      $where = $request->all()['where'] ?? [];
+
       $result = \App\Repasse::orderBy($order[0],$order[1])
+        ->where($where)
         ->paginate($limit);
       return response()->json($result);
     }

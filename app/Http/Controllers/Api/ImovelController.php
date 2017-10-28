@@ -21,7 +21,10 @@ class ImovelController extends Controller
       $order[0] = $order[0] ?? 'codigo';
       $order[1] = $order[1] ?? 'inep';
 
+      $where = $request->all()['where'] ?? [];
+
       $result = \App\Imovel::orderBy($order[0],$order[1])
+        ->where($where)
         ->paginate($limit);
       return response()->json($result);
     }
