@@ -4,8 +4,53 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8f2120fa77d42a42b4210cdbe1c114e2",
+    "content-hash": "745e384114a824f531cc2ecc2a06cfee",
     "packages": [
+        {
+            "name": "crockett/csv-seeder",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/andycrockett/laravel-csv-seeder.git",
+                "reference": "e5d97e12da1d7033f68c67130fefc7bb93099ccd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/andycrockett/laravel-csv-seeder/zipball/e5d97e12da1d7033f68c67130fefc7bb93099ccd",
+                "reference": "e5d97e12da1d7033f68c67130fefc7bb93099ccd",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": ">=5.0.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Crockett\\CsvSeeder\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andy Crockett",
+                    "email": "andyhcrockett@gmail.com"
+                }
+            ],
+            "description": "Database seeding using CSV files",
+            "keywords": [
+                "csv",
+                "laravel",
+                "seed",
+                "seeder",
+                "seeding",
+                "seeds"
+            ],
+            "time": "2016-02-11T08:41:47+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
