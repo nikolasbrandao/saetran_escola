@@ -8,9 +8,21 @@ use App\Http\Controllers\Controller;
 class TerceirizadoController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-      $result = \App\Terceirizado::paginate();
+      $limit = $request->all()['limit'] ?? 20;
+
+      $order = $request->all()['order'] ?? null;
+
+      if( $order !==null ){
+        $order = explode(',', $order);
+      }
+
+      $order[0] = $order[0] ?? 'codigo_imovel';
+      $order[1] = $order[1] ?? 'valor_unitario';
+
+      $result = \App\Terceirizado::orderBy($order[0],$order[1])
+        ->paginate($limit);
       return response()->json($result);
     }
 
